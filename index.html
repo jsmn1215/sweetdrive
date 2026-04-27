@@ -670,7 +670,72 @@ function deleteReview(i){
 renderReviews();
 </script>
 
- 방문 운전연수</p>
+  <script>
+function sendSMS(){
+
+const name = document.getElementById('c_name').value;
+const phone = document.getElementById('c_phone').value;
+const area = document.getElementById('c_area').value;
+const car = document.getElementById('c_car').value;
+const message = document.getElementById('c_message').value;
+
+const smsText =
+`예약 상담 신청\n\n`+
+`고객명: ${name}\n`+
+`전화번호: ${phone}\n`+
+`희망지역: ${area}\n`+
+`연수차량: ${car}\n`+
+`상담내용: ${message}`;
+
+window.location.href = `sms:01032671203?body=${encodeURIComponent(smsText)}`;
+}
+</script>
+  
+<section id="contact" style="background:linear-gradient(135deg,#edf5ff,#f8fbff); padding:80px 20px;">
+
+<div style="max-width:700px; margin:auto; background:#fff; padding:45px; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
+
+<h2 style="text-align:center; font-size:36px; color:#163252; margin-bottom:12px;">
+📞 예약 상담 신청
+</h2>
+
+<p style="text-align:center; color:#666; margin-bottom:35px;">
+예약 내용을 입력하면 문자처럼 상담 요청 내용을 받을 수 있습니다.
+</p>
+
+<form id="contactForm">
+
+<input type="text" id="c_name" placeholder="고객명" required>
+
+<input type="tel" id="c_phone" placeholder="전화번호" required>
+
+<select id="c_area" required style="width:100%; padding:14px; margin:10px 0; border-radius:10px; border:1px solid #ddd;">
+<option value="">연수 희망 지역 선택</option>
+<option>청주</option>
+<option>천안</option>
+<option>아산</option>
+<option>세종</option>
+<option>오송</option>
+<option>기타</option>
+</select>
+
+<select id="c_car" required style="width:100%; padding:14px; margin:10px 0; border-radius:10px; border:1px solid #ddd;">
+<option value="">연수 차량 선택</option>
+<option>자차 연수</option>
+<option>학원차 연수</option>
+</select>
+
+<textarea id="c_message" placeholder="상담 내용을 입력해주세요" style="height:140px;"></textarea>
+
+<button type="button" onclick="sendSMS()" class="btn" style="width:100%; margin-top:20px; border:none; cursor:pointer; font-size:17px; padding:16px;">
+예약 신청하기
+</button>
+
+</form>
+
+</div>
+
+</section>
   </div>
 
 <footer class="premium-footer">
