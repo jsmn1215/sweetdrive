@@ -398,7 +398,8 @@ SWEET DRIVE
 <nav>
 <a href="#about">회사소개</a>
 <a href="#services">연수지역</a>
-<a href="#reviews">후기</a>
+<a href="#review-write">후기 작성</a>
+<a href="#reviews">실제 후기</a>
 <a href="#contact">예약</a>
 </nav>
 
@@ -446,12 +447,16 @@ SWEET DRIVE
 
 <section id="services">
 <h2>📍 연수 가능 지역</h2>
+
 <div class="services">
-<div class="card"><strong>청주</strong><p>전 지역 방문 가능</p></div>
-<div class="card"><strong>천안</strong><p>전 지역 방문 가능</p></div>
-<div class="card"><strong>아산</strong><p>전 지역 방문 가능</p></div>
-<div class="card"><strong>세종</strong><p>전 지역 방문 가능</p></div>
+  <div class="card"><strong>청주</strong><p>전 지역 방문 가능</p></div>
+  <div class="card"><strong>천안</strong><p>전 지역 방문 가능</p></div>
+  <div class="card"><strong>아산</strong><p>전 지역 방문 가능</p></div>
+  <div class="card"><strong>세종</strong><p>전 지역 방문 가능</p></div>
 </div>
+
+</section>
+
 <section id="price">
 <h2 style="text-align:center;">💰 운전연수 가격 안내</h2>
 
@@ -502,8 +507,10 @@ SWEET DRIVE
 </section>
 </section>
 
-<section id="reviews">
-<h2 style="text-align:center;">⭐ 실제 수강 후기</h2>
+<section id="reviews" style="background:#f8fbff; padding:70px 20px;">
+<h2 style="text-align:center; font-size:34px; color:#163252; margin-bottom:30px;">
+⭐ 실제 수강 후기
+</h2>
 
 <div class="review-box">
 <p><strong>김○○ / 청주 / 30대 직장인</strong></p>
@@ -552,23 +559,45 @@ SWEET DRIVE
 
 <section>
 <h2>✍️ 후기 남기기</h2>
-<p style="text-align:center; color:#ff6b6b;">🎁 후기 작성 시 혜택 안내</p>
+<section id="review-write" style="background:linear-gradient(135deg,#f6fbff,#eef5ff); padding:70px 20px;">
 
-<form onsubmit="addReview(event)" style="max-width:400px; margin:auto;">
+<div style="max-width:700px; margin:auto; background:#fff; border-radius:24px; padding:40px; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
+
+<h2 style="text-align:center; font-size:34px; margin-bottom:10px; color:#163252;">
+✍️ 후기 작성
+</h2>
+
+<p style="text-align:center; color:#666; margin-bottom:35px;">
+연수 후기를 남겨주시면 더욱 좋은 서비스로 보답하겠습니다.
+</p>
+
+<form onsubmit="addReview(event)" style="max-width:500px; margin:auto;">
+
 <input type="text" id="r_name" placeholder="이름 (선택)">
+
 <input type="tel" id="r_phone" placeholder="연락처 (선택)">
-<div id="stars" style="font-size:32px; display:flex; gap:5px; justify-content:center;">
+
+<div id="stars" style="font-size:36px; display:flex; gap:8px; justify-content:center; margin:18px 0;">
   <span data-star="1">☆</span>
   <span data-star="2">☆</span>
   <span data-star="3">☆</span>
   <span data-star="4">☆</span>
   <span data-star="5">☆</span>
 </div>
-<textarea id="r_msg" placeholder="후기 작성" required></textarea>
-<button type="submit" class="btn">후기 등록</button>
-</form>
-</section>
 
+<textarea id="r_msg" placeholder="운전연수 후기를 작성해주세요" required style="height:130px;"></textarea>
+
+<div style="text-align:center; margin-top:20px;">
+  <button type="submit" class="btn" style="padding:16px 40px; border:none; cursor:pointer;">
+    후기 등록하기
+  </button>
+</div>
+
+</form>
+
+</div>
+
+</section>
 <section>
 <h2>📝 실시간 후기</h2>
 <div id="reviewList" style="max-width:500px; margin:auto;"></div>
@@ -642,6 +671,13 @@ renderReviews();
 </script>
 
  방문 운전연수</p>
+  </div>
+
+<footer class="premium-footer">
+
+  <div class="footer-brand">
+    <h3>SWEET DRIVE</h3>
+    <p>프리미엄 방문 운전연수</p>
   </div>
 
   <div class="footer-info">
