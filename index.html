@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>            
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta name="keywords" content="청주 운전연수, 천안 운전연수, 아산 운전연수, 세종 운전연수, 방문 운전연수">
 <meta property="og:title" content="스위트 드라이브 | 청주 천안 아산 세종 운전연수">
 <meta property="og:description" content="초보운전, 장롱면허 방문 운전연수 전문">
@@ -28,13 +28,30 @@ function trackCall(){
 </script>
 
 <style>
-body {margin:0; font-family:'Noto Sans KR', sans-serif; background:#f9fbff;}
+/* 📱 모바일 웹UX 전역 최적화 */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent; /* 터치 시 회색 박스 음영 제거 */
+}
+
+body {
+  margin:0; 
+  font-family:'Noto Sans KR', sans-serif; 
+  background:#f9fbff;
+  color:#333;
+  line-height:1.6;
+  word-break:keep-all; /* 모바일 한글 단어 잘림 방지 */
+}
+
+button, a, select, input, textarea {
+  touch-action: manipulation; /* 터치 클릭 반응속도 지연 300ms 제거 */
+}
 
 header {
 background:linear-gradient(135deg,#2b4c7e,#4dabf7);
 color:#fff;
 text-align:center;
-padding:50px 20px 60px;
+padding:40px 15px 50px;
 position:relative;
 overflow:hidden;
 }
@@ -62,14 +79,14 @@ border-radius:50%;
 }
 
 .logo-image {
-width:150px;
-height:150px;
+width:130px;
+height:130px;
 object-fit:cover;
 display:block;
-margin:0 auto 22px;
+margin:0 auto 20px;
 border-radius:50%;
 background:#fff;
-padding:8px;
+padding:6px;
 box-shadow:
 0 15px 35px rgba(0,0,0,0.18),
 0 5px 12px rgba(255,255,255,0.15) inset;
@@ -80,31 +97,28 @@ transition:all 0.3s ease;
 
 .logo-image:hover {
 transform:translateY(-4px) scale(1.02);
-box-shadow:
-0 18px 40px rgba(0,0,0,0.22),
-0 5px 12px rgba(255,255,255,0.15) inset;
 }
 
 .logo-text {
-font-size:46px;
+font-size:38px;
 font-weight:900;
-letter-spacing:8px;
+letter-spacing:6px;
 font-family:'Poppins', 'Noto Sans KR', sans-serif;
 color:#ffffff;
 text-transform:uppercase;
 line-height:1.1;
 text-shadow:0 6px 18px rgba(0,0,0,0.18);
 display:block;
-margin-bottom:12px;
+margin-bottom:10px;
 position:relative;
 z-index:2;
 }
 
 .logo-text span {
 display:block;
-font-size:13px;
-letter-spacing:5px;
-margin-top:12px;
+font-size:12px;
+letter-spacing:4px;
+margin-top:10px;
 font-weight:400;
 opacity:0.95;
 font-family:'Noto Sans KR', sans-serif;
@@ -114,129 +128,101 @@ color:rgba(255,255,255,0.9);
 nav {
 background:#74c0fc;
 text-align:center;
-padding:12px;
+padding:10px;
 position:sticky;
 top:0;
 z-index:9999;
 box-shadow:0 4px 15px rgba(0,0,0,0.08);
 backdrop-filter:blur(10px);
-}
-
-nav a {
-color:#fff;
-margin:0 10px;
-text-decoration:none;
-font-weight:600;
-font-size:15px;
-padding:8px 14px;
-border-radius:999px;
-transition:0.3s;
-}
-
-nav a:hover {
-background:rgba(255,255,255,0.18);
-}
-
-@media(max-width:768px){
-nav {
-padding:10px 6px;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-wrap:wrap;
 gap:6px;
 }
+
 nav a {
-font-size:13px;
-padding:8px 10px;
-margin:0;
+color:#fff;
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+padding:7px 12px;
+border-radius:999px;
+transition:0.2s;
 white-space:nowrap;
 }
+
+nav a:active, nav a:hover {
+background:rgba(255,255,255,0.25);
 }
 
-section {padding:30px 20px;}
+section {padding:40px 18px;}
 
 .btn {
 display:inline-block;
 background:#ff6b6b;
 color:#fff;
-padding:14px 24px;
-border-radius:8px;
+padding:14px 22px;
+border-radius:10px;
 text-decoration:none;
 font-weight:bold;
 margin:5px;
+font-size:15px;
+box-shadow: 0 4px 12px rgba(255,107,107,0.3);
 }
 
-.kakao {background:#FEE500; color:#000;}
+.btn:active {
+transform: scale(0.98);
+}
+
+.kakao {background:#FEE500; color:#000; box-shadow: 0 4px 12px rgba(254,229,0,0.3);}
 
 .services {
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:16px;
 }
 
 .card {
 background:#fff;
-padding:15px;
-border-radius:10px;
+padding:20px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.03);
+border: 1px solid #eef3f8;
 }
 
 .review-box {
 background:#fff;
 padding:20px;
-margin:15px auto;
+margin:14px auto;
 max-width:700px;
-border-radius:12px;
+border-radius:14px;
 box-shadow:0 4px 15px rgba(0,0,0,0.04);
 position:relative;
+border:1px solid #edf2f7;
 }
 
-footer {
-background:#4dabf7;
-color:#fff;
-text-align:center;
-padding:20px;
-}
-
-.fixed {
-position:fixed;
-bottom:0;
-left:0;
+/* 모바일 폼 자동확대 방지 (font-size 16px 이상) */
+input, textarea, select {
 width:100%;
-display:flex;
-z-index:9999;
-margin:0;
-padding:0;
-box-shadow:0 -4px 15px rgba(0,0,0,0.12);
-}
-
-.fixed a {
-flex:1;
-padding:16px 0;
-text-align:center;
-font-weight:bold;
-text-decoration:none;
-margin:0;
-border:none;
-}
-
-.fixed .call {background:#ff6b6b; color:#fff;}
-.fixed .kakao {background:#FEE500; color:#000;}
-
-input, textarea {
-width:100%;
-padding:10px;
+padding:14px;
 margin:8px 0;
-border-radius:5px;
-border:1px solid #ccc;
-box-sizing: border-box;
+border-radius:8px;
+border:1px solid #d1d5db;
+font-size:16px; 
+background:#fff;
+}
+
+input:focus, textarea:focus, select:focus {
+outline:none;
+border-color:#4dabf7;
 }
 
 .hero {
 background:
-linear-gradient(rgba(9,20,40,0.65), rgba(9,20,40,0.65)),
+linear-gradient(rgba(9,20,40,0.68), rgba(9,20,40,0.68)),
 url('https://images.unsplash.com/photo-1503376780353-7e6692767b70') center/cover;
-padding:120px 20px;
+padding:80px 18px;
 text-align:center;
 position:relative;
 color:#fff;
@@ -249,121 +235,127 @@ margin:auto;
 
 .hero-badge {
 display:inline-block;
-background:rgba(255,255,255,0.15);
-padding:10px 18px;
+background:rgba(255,255,255,0.18);
+padding:8px 16px;
 border-radius:999px;
-font-size:14px;
-margin-bottom:20px;
+font-size:13px;
+margin-bottom:16px;
 backdrop-filter:blur(8px);
 }
 
 .hero h1 {
-font-size:48px;
-line-height:1.3;
+font-size:32px;
+line-height:1.35;
 font-weight:800;
-margin-bottom:20px;
-letter-spacing:-1px;
+margin-bottom:16px;
+letter-spacing:-0.5px;
 }
 
 .hero-sub {
-font-size:18px;
-line-height:1.8;
+font-size:15px;
+line-height:1.7;
 opacity:0.92;
-margin-bottom:35px;
+margin-bottom:28px;
 }
 
 .hero-buttons {
 display:flex;
-gap:12px;
+gap:10px;
 justify-content:center;
 flex-wrap:wrap;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .hero-btn,
 .hero-kakao {
-padding:16px 30px;
+padding:15px 24px;
 border-radius:12px;
-font-size:16px;
-box-shadow:0 10px 25px rgba(0,0,0,0.15);
+font-size:15px;
+width: 100%;
+max-width: 280px;
 }
 
 .hero-features {
 display:flex;
 justify-content:center;
-gap:18px;
+gap:10px;
 flex-wrap:wrap;
-font-size:14px;
+font-size:13px;
 opacity:0.95;
 }
 
 .hero-features span {
-background:rgba(255,255,255,0.12);
-padding:10px 16px;
+background:rgba(255,255,255,0.14);
+padding:8px 14px;
 border-radius:999px;
 backdrop-filter:blur(6px);
-}
-
-@media(max-width:768px){
-.hero {
-padding:90px 20px;
-}
-.hero h1 {
-font-size:34px;
-}
-.hero-sub {
-font-size:15px;
-}
-.hero-buttons {
-flex-direction:column;
-align-items:center;
-}
-.hero-btn,
-.hero-kakao {
-width:90%;
-max-width:300px;
-}
 }
 
 .premium-footer {
 background:#163252;
 color:#fff;
-padding:50px 20px 100px;
+padding:40px 18px 100px;
 text-align:center;
 }
 
 .footer-brand h3 {
-font-size:30px;
-letter-spacing:5px;
-margin-bottom:8px;
+font-size:26px;
+letter-spacing:4px;
+margin-bottom:6px;
 }
 
 .footer-brand p {
 opacity:0.85;
-margin-bottom:25px;
+margin-bottom:20px;
+font-size:14px;
 }
 
 .footer-info p {
-margin:8px 0;
+margin:6px 0;
 opacity:0.88;
+font-size:14px;
 }
 
 .footer-copy {
-margin-top:30px;
-font-size:13px;
+margin-top:25px;
+font-size:12px;
 opacity:0.65;
 }
 
-.premium-fixed {
-box-shadow:0 -5px 20px rgba(0,0,0,0.12);
+/* 모바일 하단 고정 바 */
+.fixed {
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+display:flex;
+z-index:9999;
+margin:0;
+padding:0;
+box-shadow:0 -4px 15px rgba(0,0,0,0.15);
 }
 
+.fixed a {
+flex:1;
+padding:16px 0;
+text-align:center;
+font-weight:bold;
+text-decoration:none;
+font-size:15px;
+margin:0;
+border:none;
+}
+
+.fixed .call {background:#ff6b6b; color:#fff;}
+.fixed .kakao {background:#FEE500; color:#000;}
+
+/* 맨 위로 가기 버튼 (하단 바와 안 겹치게 모바일 높이 조절) */
 .top-btn {
 position: fixed;
-bottom: 80px;
+bottom: 75px;
 right: 15px;
-width: 42px;
-height: 42px;
+width: 44px;
+height: 44px;
 background: #2b4c7e;
 color: #fff;
 border-radius: 50%;
@@ -372,26 +364,30 @@ align-items: center;
 justify-content: center;
 text-decoration: none;
 font-weight: bold;
-box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 z-index: 9998;
-font-size: 14px;
+font-size: 15px;
 }
 
-/* 별점 선택 스타일 */
+/* 별점 터치 영역 확대 및 최적화 */
 .star-rating span {
-font-size: 38px;
+font-size: 40px;
 cursor: pointer;
-transition: color 0.2s, transform 0.1s;
+transition: transform 0.1s;
 user-select: none;
 display: inline-block;
+padding: 0 4px;
 }
-.star-rating span:hover {
-transform: scale(1.15);
+
+.star-rating span:active {
+transform: scale(1.2);
 }
+
 .star-gold {
 color: #f59e0b;
 text-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
 }
+
 .star-gray {
 color: #cbd5e1;
 }
@@ -401,26 +397,30 @@ cursor: pointer;
 opacity: 0.5;
 font-size: 12px;
 margin-left: 5px;
-transition: opacity 0.2s;
-}
-.admin-lock-btn:hover {
-opacity: 1;
+padding: 4px;
 }
 
 .delete-btn {
 background: #ff6b6b;
 color: white;
 border: none;
-padding: 5px 12px;
+padding: 6px 14px;
 border-radius: 6px;
 cursor: pointer;
-font-size: 12px;
+font-size: 13px;
 margin-top: 10px;
 font-weight: bold;
-transition: background 0.2s;
 }
-.delete-btn:hover {
-background: #fa5252;
+
+@media(min-width:769px){
+  header { padding:50px 20px 60px; }
+  .logo-image { width:150px; height:150px; }
+  .logo-text { font-size:46px; }
+  .hero { padding:120px 20px; }
+  .hero h1 { font-size:48px; }
+  .hero-sub { font-size:18px; }
+  .hero-btn, .hero-kakao { width:auto; }
+  nav a { font-size:15px; padding:8px 14px; }
 }
 </style>
 </head>
@@ -433,18 +433,18 @@ background: #fa5252;
 SWEET DRIVE
 <span>PREMIUM DRIVING LESSON</span>
 </div>
-<p style="font-size:18px; margin-top:10px; opacity:0.95;">
+<p style="font-size:17px; margin-top:8px; opacity:0.95;">
 청주 · 천안 · 아산 · 세종 방문 운전연수
 </p>
-<p style="margin-top:8px; font-size:15px; opacity:0.9;">
+<p style="margin-top:6px; font-size:14px; opacity:0.9;">
 초보운전 · 장롱면허 · 도로연수 전문
 </p>
-<div style="margin-top:18px;">
-<span style="background:rgba(255,255,255,0.15); padding:10px 18px; border-radius:999px; font-size:14px; backdrop-filter:blur(8px);">
+<div style="margin-top:16px;">
+<span style="background:rgba(255,255,255,0.15); padding:8px 16px; border-radius:999px; font-size:13px; backdrop-filter:blur(8px);">
 🔥 당일 예약 가능
 </span>
 </div>
-<div style="margin-top:28px;">
+<div style="margin-top:24px;">
 <a class="btn" href="tel:01081461006" onclick="trackCall()">📞 1분 상담 바로 연결</a>
 <a class="btn kakao" href="https://open.kakao.com/o/sx25Wkqb">💬 카카오톡 상담</a>
 </div>
@@ -502,31 +502,31 @@ SWEET DRIVE
 </div>
 </section>
 
-<section id="curriculum" style="padding:60px 20px; background:#edf5ff;">
-  <h2 style="text-align:center; font-size:32px; color:#163252; margin-bottom:30px;">
+<section id="curriculum" style="background:#edf5ff;">
+  <h2 style="text-align:center; font-size:28px; color:#163252; margin-bottom:24px;">
     🎯 10시간 체계적 커리큘럼
   </h2>
   <div class="services" style="max-width:900px; margin:auto;">
     <div class="card">
-      <h3 style="color:#2b4c7e;">1일차 (2.5시간)</h3>
+      <h3 style="color:#2b4c7e; margin-top:0;">1일차 (2.5시간)</h3>
       <p>기초 조작법 습득</p>
       <p>차선 맞추기 & 제동 연습</p>
       <p>기본 도로 주행 적응</p>
     </div>
     <div class="card">
-      <h3 style="color:#2b4c7e;">2일차 (2.5시간)</h3>
+      <h3 style="color:#2b4c7e; margin-top:0;">2일차 (2.5시간)</h3>
       <p>시내 중심 도로 주행</p>
       <p>차선 변경 타이밍 숙달</p>
       <p>신호등 및 교차로 통행</p>
     </div>
     <div class="card">
-      <h3 style="color:#2b4c7e;">3일차 (2.5시간)</h3>
+      <h3 style="color:#2b4c7e; margin-top:0;">3일차 (2.5시간)</h3>
       <p>복잡한 이면도로 & 골목길</p>
       <p>고속도로 / 바이패스 주행</p>
       <p>자주 가는 목적지 코스 연습</p>
     </div>
     <div class="card">
-      <h3 style="color:#2b4c7e;">4일차 (2.5시간)</h3>
+      <h3 style="color:#2b4c7e; margin-top:0;">4일차 (2.5시간)</h3>
       <p>후진 / 후방 주차 완전 정리</p>
       <p>평행 주차 핵심 공식 연습</p>
       <p>최종 총정리 및 단점 보완</p>
@@ -535,112 +535,111 @@ SWEET DRIVE
 </section>
 
 <section id="price">
-<h2 style="text-align:center;">💰 운전연수 가격 안내</h2>
+<h2 style="text-align:center; font-size:28px;">💰 운전연수 가격 안내</h2>
 <div class="services">
 <div class="card">
-<h3>자차 운전연수</h3>
+<h3 style="margin-top:0;">자차 운전연수</h3>
 <p><strong>10시간 기준</strong></p>
 <p>내 차량으로 편하게 연습</p>
 <p>실제 도로 환경 적응</p>
-<p style="color:#ff6b6b; font-weight:bold; font-size:20px;">30만원</p>
+<p style="color:#ff6b6b; font-weight:bold; font-size:22px; margin-bottom:0;">30만원</p>
 </div>
 <div class="card">
-<h3>학원차 운전연수</h3>
+<h3 style="margin-top:0;">학원차 운전연수</h3>
 <p><strong>10시간 기준</strong></p>
 <p>보조 브레이크 차량</p>
 <p>초보 운전자 추천</p>
-<p style="color:#ff6b6b; font-weight:bold; font-size:20px;">33만원</p>
+<p style="color:#ff6b6b; font-weight:bold; font-size:22px; margin-bottom:0;">33만원</p>
 </div>
 <div class="card">
-<h3>추가 안내</h3>
+<h3 style="margin-top:0;">추가 안내</h3>
 <p>시외 · 주말 · 저녁 연수 시</p>
 <p>추가 비용이 발생할 수 있습니다.</p>
 <p>전화 문의 시 자세히 안내드립니다.</p>
-<p style="color:#4dabf7; font-weight:bold;">전화 부재 시 문자 남겨주세요 😊</p>
+<p style="color:#4dabf7; font-weight:bold; margin-bottom:0;">전화 부재 시 문자 남겨주세요 😊</p>
 </div>
 </div>
-<div style="margin-top:25px; background:#fff; padding:20px; border-radius:12px; text-align:center;">
-<p style="font-weight:bold; color:#ff6b6b;">※ 시외 / 주말 / 저녁 연수는 추가 비용 발생 가능</p>
-<p>전화 문의 주시면 상세히 설명드립니다.<br>부재중일 경우 늦더라도 꼭 연락드립니다 😊</p>
+<div style="margin-top:20px; background:#fff; padding:18px; border-radius:12px; text-align:center; border:1px solid #edf2f7;">
+<p style="font-weight:bold; color:#ff6b6b; margin-top:0;">※ 시외 / 주말 / 저녁 연수는 추가 비용 발생 가능</p>
+<p style="margin-bottom:0;">전화 문의 주시면 상세히 설명드립니다.<br>부재중일 경우 늦더라도 꼭 연락드립니다 😊</p>
 </div>
 </section>
 
-<section id="reviews" style="background:#f8fbff; padding:70px 20px;">
-<h2 style="text-align:center; font-size:34px; color:#163252; margin-bottom:30px;">
+<section id="reviews" style="background:#f8fbff;">
+<h2 style="text-align:center; font-size:28px; color:#163252; margin-bottom:24px;">
 ⭐ 실제 수강 후기
 </h2>
 
-<!-- 새로 작성된 후기들이 맨 위에 노출 -->
+<!-- 새로 작성된 후기가 맨 위에 올 영역 -->
 <div id="dynamicReviewList"></div>
 
-<!-- 기존 수강 후기 목록 -->
+<!-- 기본 수강 후기 -->
 <div class="review-box">
-<p><strong>김지연 / 청주</strong></p>
+<p style="margin-top:0;"><strong>김지연 / 청주</strong></p>
 <p>⭐⭐⭐⭐⭐</p>
-<p>장롱면허 8년 정도였는데 운전이 너무 무서워서 계속 미루다가 신청했어요. 첫날은 긴장했는데 강사님이 차분하게 설명해주셔서 부담이 없었습니다. 3일 연수 받고 지금은 출퇴근 운전까지 하고 있어요. 특히 주차랑 차선 변경을 반복 연습해주셔서 자신감이 생겼습니다.</p>
+<p style="margin-bottom:0;">장롱면허 8년 정도였는데 운전이 너무 무서워서 계속 미루다가 신청했어요. 첫날은 긴장했는데 강사님이 차분하게 설명해주셔서 부담이 없었습니다. 3일 연수 받고 지금은 출퇴근 운전까지 하고 있어요. 특히 주차랑 차선 변경을 반복 연습해주셔서 자신감이 생겼습니다.</p>
 </div>
 
 <div class="review-box">
-<p><strong>이아름 / 천안</strong></p>
+<p style="margin-top:0;"><strong>이아름 / 천안</strong></p>
 <p>⭐⭐⭐⭐⭐</p>
-<p>초보운전이라 골목길이랑 차선 변경이 가장 걱정됐는데 실제 자주 다니는 길 위주로 연습해주셔서 정말 도움됐어요. 운전학원보다 훨씬 편하고 이해하기 쉽게 알려주셨습니다. 혼자 운전할 수 있게 돼서 너무 만족합니다.</p>
+<p style="margin-bottom:0;">초보운전이라 골목길이랑 차선 변경이 가장 걱정됐는데 실제 자주 다니는 길 위주로 연습해주셔서 정말 도움됐어요. 운전학원보다 훨씬 편하고 이해하기 쉽게 알려주셨습니다. 혼자 운전할 수 있게 돼서 너무 만족합니다.</p>
 </div>
 
 <div class="review-box">
-<p><strong>박미영 / 세종</strong></p>
+<p style="margin-top:0;"><strong>박미영 / 세종</strong></p>
 <p>⭐⭐⭐⭐⭐</p>
-<p>면허만 있고 실제 운전은 거의 처음이었어요. 처음에는 브레이크 밟는 것도 긴장됐는데 단계별로 알려주셔서 좋았습니다. 주차 연습이 특히 도움이 많이 됐고, 지금은 마트나 카페 정도는 혼자 다녀요.</p>
+<p style="margin-bottom:0;">면허만 있고 실제 운전은 거의 처음이었어요. 처음에는 브레이크 밟는 것도 긴장됐는데 단계별로 알려주셔서 좋았습니다. 주차 연습이 특히 도움이 많이 됐고, 지금은 마트나 카페 정도는 혼자 다녀요.</p>
 </div>
 
 <div class="review-box">
-<p><strong>정슬기 / 아산</strong></p>
+<p style="margin-top:0;"><strong>정슬기 / 아산</strong></p>
 <p>⭐⭐⭐⭐⭐</p>
-<p>출퇴근 때문에 꼭 운전을 해야 해서 신청했습니다. 실제 회사 가는 길로 연습해주셔서 실전 감각이 빨리 생겼어요. 겁이 많았는데 반복 연습 덕분에 자신감이 생겼습니다. 친절하게 알려주셔서 부담 없이 연수 받을 수 있었어요.</p>
+<p style="margin-bottom:0;">출퇴근 때문에 꼭 운전을 해야 해서 신청했습니다. 실제 회사 가는 길로 연습해주셔서 실전 감각이 빨리 생겼어요. 겁이 많았는데 반복 연습 덕분에 자신감이 생겼습니다. 친절하게 알려주셔서 부담 없이 연수 받을 수 있었어요.</p>
 </div>
 </section>
 
-<section id="faq" style="background:#fff; padding:60px 20px;">
-  <h2 style="text-align:center; font-size:32px; color:#163252; margin-bottom:30px;">
+<section id="faq" style="background:#fff;">
+  <h2 style="text-align:center; font-size:28px; color:#163252; margin-bottom:24px;">
     ❓ 자주 묻는 질문 (FAQ)
   </h2>
   <div style="max-width:700px; margin:auto;">
-    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:15px; background:#f9fbff;">
-      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:16px;">Q. 연수 중 사고가 나면 어떻게 처리되나요?</summary>
-      <p style="margin-top:10px; color:#555; line-height:1.6;">
+    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:14px; background:#f9fbff;">
+      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:15px;">Q. 연수 중 사고가 나면 어떻게 처리되나요?</summary>
+      <p style="margin-top:10px; color:#555; line-height:1.6; margin-bottom:0;">
         학원 차량의 경우 종합보험에 가입되어 있어 안심하고 연수받으실 수 있습니다. 자차 연수의 경우 본인 차량 보험 범주 내에서 안내 후 안전하게 진행됩니다.
       </p>
     </details>
 
-    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:15px; background:#f9fbff;">
-      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:16px;">Q. 하루에 몇 시간씩 수업이 진행되나요?</summary>
-      <p style="margin-top:10px; color:#555; line-height:1.6;">
+    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:14px; background:#f9fbff;">
+      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:15px;">Q. 하루에 몇 시간씩 수업이 진행되나요?</summary>
+      <p style="margin-top:10px; color:#555; line-height:1.6; margin-bottom:0;">
         보통 하루 2.5시간씩 총 4일 과정으로 진행되며, 수강생님의 개인 일정에 맞춰 1:1 자유로운 조율이 가능합니다.
       </p>
     </details>
 
-    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:15px; background:#f9fbff;">
-      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:16px;">Q. 주말이나 저녁 시간대도 가능한가요?</summary>
-      <p style="margin-top:10px; color:#555; line-height:1.6;">
+    <details style="margin-bottom:12px; border:1px solid #e0e8f0; border-radius:10px; padding:14px; background:#f9fbff;">
+      <summary style="font-weight:bold; cursor:pointer; color:#2b4c7e; font-size:15px;">Q. 주말이나 저녁 시간대도 가능한가요?</summary>
+      <p style="margin-top:10px; color:#555; line-height:1.6; margin-bottom:0;">
         네, 직장인분들을 위해 야간 및 주말 연수도 함께 운영하고 있습니다. (인기 시간대는 조기 마감될 수 있으니 사전에 문의해 주세요.)
       </p>
     </details>
   </div>
 </section>
 
-<section id="review-write" style="background:linear-gradient(135deg,#f6fbff,#eef5ff); padding:70px 20px;">
-<div style="max-width:700px; margin:auto; background:#fff; border-radius:24px; padding:40px; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
-<h2 style="text-align:center; font-size:34px; margin-bottom:10px; color:#163252;">
+<section id="review-write" style="background:linear-gradient(135deg,#f6fbff,#eef5ff);">
+<div style="max-width:700px; margin:auto; background:#fff; border-radius:20px; padding:25px 18px; box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+<h2 style="text-align:center; font-size:28px; margin-top:0; margin-bottom:8px; color:#163252;">
 ✍️ 후기 작성
 </h2>
-<p style="text-align:center; color:#666; margin-bottom:35px;">
+<p style="text-align:center; color:#666; margin-bottom:24px; font-size:14px;">
 연수 후기를 남겨주시면 더욱 좋은 서비스로 보답하겠습니다.
 </p>
 <form onsubmit="addReview(event)" style="max-width:500px; margin:auto;">
 <input type="text" id="r_name" placeholder="이름 / 지역 (예: 홍길동 / 청주)">
 <input type="tel" id="r_phone" placeholder="연락처 (선택)">
 
-<!-- 노란색 별점 선택 영역 -->
-<div id="stars" class="star-rating" style="display:flex; gap:8px; justify-content:center; margin:18px 0;">
+<div id="stars" class="star-rating" style="display:flex; gap:6px; justify-content:center; margin:16px 0;">
   <span data-star="1" class="star-gold">★</span>
   <span data-star="2" class="star-gold">★</span>
   <span data-star="3" class="star-gold">★</span>
@@ -648,9 +647,9 @@ SWEET DRIVE
   <span data-star="5" class="star-gold">★</span>
 </div>
 
-<textarea id="r_msg" placeholder="운전연수 후기를 작성해주세요" required style="height:130px;"></textarea>
-<div style="text-align:center; margin-top:20px;">
-  <button type="submit" class="btn" style="padding:16px 40px; border:none; cursor:pointer;">
+<textarea id="r_msg" placeholder="운전연수 후기를 작성해주세요" required style="height:120px;"></textarea>
+<div style="text-align:center; margin-top:16px;">
+  <button type="submit" class="btn" style="width:100%; max-width:280px; padding:15px; border:none; cursor:pointer;">
     후기 등록하기
   </button>
 </div>
@@ -658,18 +657,18 @@ SWEET DRIVE
 </div>
 </section>
 
-<section id="contact" style="background:linear-gradient(135deg,#edf5ff,#f8fbff); padding:80px 20px;">
-<div style="max-width:700px; margin:auto; background:#fff; padding:45px; border-radius:25px; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
-<h2 style="text-align:center; font-size:36px; color:#163252; margin-bottom:12px;">
+<section id="contact" style="background:linear-gradient(135deg,#edf5ff,#f8fbff);">
+<div style="max-width:700px; margin:auto; background:#fff; padding:30px 18px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+<h2 style="text-align:center; font-size:28px; color:#163252; margin-top:0; margin-bottom:8px;">
 📞 예약 상담 신청
 </h2>
-<p style="text-align:center; color:#666; margin-bottom:35px;">
+<p style="text-align:center; color:#666; margin-bottom:24px; font-size:14px;">
 예약 내용을 입력하면 문자 상담 요청 내용이 자동으로 연결됩니다.
 </p>
 <form id="contactForm">
 <input type="text" id="c_name" placeholder="고객명" required>
 <input type="tel" id="c_phone" placeholder="전화번호" required>
-<select id="c_area" required style="width:100%; padding:14px; margin:8px 0; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;">
+<select id="c_area" required>
 <option value="">연수 희망 지역 선택</option>
 <option>청주</option>
 <option>천안</option>
@@ -678,13 +677,13 @@ SWEET DRIVE
 <option>오송</option>
 <option>기타</option>
 </select>
-<select id="c_car" required style="width:100%; padding:14px; margin:8px 0; border-radius:5px; border:1px solid #ccc; box-sizing:border-box;">
+<select id="c_car" required>
 <option value="">연수 차량 선택</option>
 <option>자차 연수</option>
 <option>학원차 연수</option>
 </select>
-<textarea id="c_message" placeholder="상담 내용을 입력해주세요" style="height:140px;"></textarea>
-<button type="button" onclick="sendSMS()" class="btn" style="width:100%; margin-top:20px; border:none; cursor:pointer; font-size:17px; padding:16px;">
+<textarea id="c_message" placeholder="상담 내용을 입력해주세요" style="height:120px;"></textarea>
+<button type="button" onclick="sendSMS()" class="btn" style="width:100%; margin-top:16px; border:none; cursor:pointer; font-size:16px; padding:15px;">
 예약 신청하기
 </button>
 </form>
@@ -716,7 +715,7 @@ SWEET DRIVE
 <script>
 let selectedStars = 5;
 let isAdminMode = false;
-const ADMIN_PASSWORD = "1234"; // 관리자 비밀번호 (원하는 것으로 변경 가능)
+const ADMIN_PASSWORD = "1234";
 
 const stars = document.querySelectorAll('#stars span');
 
@@ -790,7 +789,7 @@ function renderReviews(){
     const div=document.createElement('div');
     div.className="review-box";
     div.innerHTML=`
-      <p><strong>${r.name}</strong></p>
+      <p style="margin-top:0;"><strong>${r.name}</strong></p>
       <p>${"⭐".repeat(r.stars)}</p>
       <p>${r.msg}</p>
       ${isAdminMode ? `<button class="delete-btn" onclick="deleteReview(${i})">삭제</button>` : ''}
