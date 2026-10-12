@@ -9,7 +9,7 @@
 <meta property="og:image" content="logo.png.png">
 <meta property="og:type" content="website">
 
-<!-- 구글 서치콘솔 / 네이버 서치어드바이저 소유권 확인 태그 (필요시 코드 변경) -->
+<!-- 구글 서치콘솔 / 네이버 서치어드바이저 소유권 확인 태그 -->
 <meta name="naver-site-verification" content="네이버_서치어드바이저_코드" />
 <meta name="google-site-verification" content="구글_서치콘솔_코드" />
 
@@ -60,6 +60,7 @@ height:220px;
 background:rgba(255,255,255,0.06);
 border-radius:50%;
 }
+
 .logo-image {
 width:150px;
 height:150px;
@@ -84,7 +85,6 @@ box-shadow:
 0 5px 12px rgba(255,255,255,0.15) inset;
 }
 
-/* ✅ 프리미엄 로고 */
 .logo-text {
 font-size:46px;
 font-weight:900;
@@ -188,6 +188,7 @@ margin:15px auto;
 max-width:700px;
 border-radius:12px;
 box-shadow:0 4px 15px rgba(0,0,0,0.04);
+position:relative;
 }
 
 footer {
@@ -357,7 +358,6 @@ opacity:0.65;
 box-shadow:0 -5px 20px rgba(0,0,0,0.12);
 }
 
-/* 맨 위로 버튼 스타일 */
 .top-btn {
 position: fixed;
 bottom: 80px;
@@ -375,6 +375,52 @@ font-weight: bold;
 box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 z-index: 9998;
 font-size: 14px;
+}
+
+/* 별점 선택 스타일 */
+.star-rating span {
+font-size: 38px;
+cursor: pointer;
+transition: color 0.2s, transform 0.1s;
+user-select: none;
+display: inline-block;
+}
+.star-rating span:hover {
+transform: scale(1.15);
+}
+.star-gold {
+color: #f59e0b;
+text-shadow: 0 0 4px rgba(245, 158, 11, 0.4);
+}
+.star-gray {
+color: #cbd5e1;
+}
+
+.admin-lock-btn {
+cursor: pointer;
+opacity: 0.5;
+font-size: 12px;
+margin-left: 5px;
+transition: opacity 0.2s;
+}
+.admin-lock-btn:hover {
+opacity: 1;
+}
+
+.delete-btn {
+background: #ff6b6b;
+color: white;
+border: none;
+padding: 5px 12px;
+border-radius: 6px;
+cursor: pointer;
+font-size: 12px;
+margin-top: 10px;
+font-weight: bold;
+transition: background 0.2s;
+}
+.delete-btn:hover {
+background: #fa5252;
 }
 </style>
 </head>
@@ -456,7 +502,6 @@ SWEET DRIVE
 </div>
 </section>
 
-<!-- 커리큘럼 안내 섹션 -->
 <section id="curriculum" style="padding:60px 20px; background:#edf5ff;">
   <h2 style="text-align:center; font-size:32px; color:#163252; margin-bottom:30px;">
     🎯 10시간 체계적 커리큘럼
@@ -525,10 +570,10 @@ SWEET DRIVE
 ⭐ 실제 수강 후기
 </h2>
 
-<!-- ⭐ 사용자 작성 후기가 맨 위에 들어가는 영역 -->
+<!-- 새로 작성된 후기들이 맨 위에 노출 -->
 <div id="dynamicReviewList"></div>
 
-<!-- ⭐ 기존 기본 수강 후기들 -->
+<!-- 기존 수강 후기 목록 -->
 <div class="review-box">
 <p><strong>김지연 / 청주</strong></p>
 <p>⭐⭐⭐⭐⭐</p>
@@ -554,7 +599,6 @@ SWEET DRIVE
 </div>
 </section>
 
-<!-- FAQ 자주 묻는 질문 섹션 -->
 <section id="faq" style="background:#fff; padding:60px 20px;">
   <h2 style="text-align:center; font-size:32px; color:#163252; margin-bottom:30px;">
     ❓ 자주 묻는 질문 (FAQ)
@@ -594,13 +638,16 @@ SWEET DRIVE
 <form onsubmit="addReview(event)" style="max-width:500px; margin:auto;">
 <input type="text" id="r_name" placeholder="이름 / 지역 (예: 홍길동 / 청주)">
 <input type="tel" id="r_phone" placeholder="연락처 (선택)">
-<div id="stars" style="font-size:36px; display:flex; gap:8px; justify-content:center; margin:18px 0; cursor:pointer;">
-  <span data-star="1">★</span>
-  <span data-star="2">★</span>
-  <span data-star="3">★</span>
-  <span data-star="4">★</span>
-  <span data-star="5">★</span>
+
+<!-- 노란색 별점 선택 영역 -->
+<div id="stars" class="star-rating" style="display:flex; gap:8px; justify-content:center; margin:18px 0;">
+  <span data-star="1" class="star-gold">★</span>
+  <span data-star="2" class="star-gold">★</span>
+  <span data-star="3" class="star-gold">★</span>
+  <span data-star="4" class="star-gold">★</span>
+  <span data-star="5" class="star-gold">★</span>
 </div>
+
 <textarea id="r_msg" placeholder="운전연수 후기를 작성해주세요" required style="height:130px;"></textarea>
 <div style="text-align:center; margin-top:20px;">
   <button type="submit" class="btn" style="padding:16px 40px; border:none; cursor:pointer;">
@@ -655,7 +702,7 @@ SWEET DRIVE
     <p>문의전화: 010-8146-1006</p>
   </div>
   <div class="footer-copy">
-    © 2026 SWEET DRIVE. ALL RIGHTS RESERVED.
+    © 2026 SWEET DRIVE. ALL RIGHTS RESERVED. <span class="admin-lock-btn" onclick="toggleAdminMode()" title="관리자 로그인">🔒</span>
   </div>
 </footer>
 
@@ -664,21 +711,47 @@ SWEET DRIVE
   <a class="kakao" href="https://open.kakao.com/o/sx25Wkqb">💬 카카오톡</a>
 </div>
 
-<!-- 맨 위로 가기 버튼 -->
 <a href="#" class="top-btn">▲</a>
 
 <script>
 let selectedStars = 5;
+let isAdminMode = false;
+const ADMIN_PASSWORD = "1234"; // 관리자 비밀번호 (원하는 것으로 변경 가능)
+
 const stars = document.querySelectorAll('#stars span');
 
 stars.forEach(star => {
   star.addEventListener('click', () => {
     selectedStars = Number(star.dataset.star);
-    stars.forEach((s, index) => {
-      s.textContent = index < selectedStars ? '★' : '☆';
-    });
+    updateStarUI();
   });
 });
+
+function updateStarUI(){
+  stars.forEach((s, index) => {
+    if(index < selectedStars) {
+      s.className = 'star-gold';
+    } else {
+      s.className = 'star-gray';
+    }
+  });
+}
+
+function toggleAdminMode() {
+  if (isAdminMode) {
+    isAdminMode = false;
+    alert("관리자 모드가 해제되었습니다.");
+  } else {
+    const pwd = prompt("관리자 비밀번호를 입력해주세요:");
+    if (pwd === ADMIN_PASSWORD) {
+      isAdminMode = true;
+      alert("관리자 모드가 활성화되었습니다. 이제 후기를 삭제할 수 있습니다.");
+    } else if (pwd !== null) {
+      alert("비밀번호가 올바르지 않습니다.");
+    }
+  }
+  renderReviews();
+}
 
 function addReview(e){
   e.preventDefault();
@@ -702,9 +775,7 @@ function addReview(e){
   document.getElementById('r_phone').value = "";
   document.getElementById('r_msg').value = "";
   selectedStars = 5;
-  stars.forEach((s, index) => {
-    s.textContent = '★';
-  });
+  updateStarUI();
 
   renderReviews();
   alert("후기가 성공적으로 등록되었습니다!");
@@ -722,17 +793,20 @@ function renderReviews(){
       <p><strong>${r.name}</strong></p>
       <p>${"⭐".repeat(r.stars)}</p>
       <p>${r.msg}</p>
-      <button onclick="deleteReview(${i})" style="width:auto; padding:4px 10px; font-size:12px; background:#ff6b6b; color:white; border:none; border-radius:4px; cursor:pointer; margin-top:8px;">삭제</button>
+      ${isAdminMode ? `<button class="delete-btn" onclick="deleteReview(${i})">삭제</button>` : ''}
     `;
     list.appendChild(div);
   });
 }
 
 function deleteReview(i){
-  let reviews = JSON.parse(localStorage.getItem('sweet_reviews') || "[]");
-  reviews.splice(i,1);
-  localStorage.setItem('sweet_reviews', JSON.stringify(reviews));
-  renderReviews();
+  if(!isAdminMode) return;
+  if(confirm("이 후기를 정말 삭제하시겠습니까?")) {
+    let reviews = JSON.parse(localStorage.getItem('sweet_reviews') || "[]");
+    reviews.splice(i,1);
+    localStorage.setItem('sweet_reviews', JSON.stringify(reviews));
+    renderReviews();
+  }
 }
 
 renderReviews();
